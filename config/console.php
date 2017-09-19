@@ -4,8 +4,10 @@ $params = require(__DIR__ . '/params.php');
 $db = require(__DIR__ . '/db.php');
 
 $config = [
-    'id' => 'basic-console',
-    'basePath' => dirname(__DIR__),
+    'id' => 'console',
+    'basePath' => '@app',
+    'runtimePath' => '@runtime',
+    'vendorPath' => '@vendor',
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
     'components' => [
@@ -17,6 +19,7 @@ $config = [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
+                    'logFile' => '@storage/logs/app.log',
                 ],
             ],
         ],

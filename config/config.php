@@ -4,8 +4,11 @@ $params = require(__DIR__ . '/params.php');
 $db = require(__DIR__ . '/db.php');
 
 $config = [
-    'id' => 'basic',
-    'basePath' => dirname(__DIR__),
+    'id' => 'ectouch',
+    'basePath' => '@app',
+    'viewPath' => '@view',
+    'runtimePath' => '@runtime',
+    'vendorPath' => '@vendor',
     'bootstrap' => ['log'],
     'components' => [
         'request' => [
@@ -35,6 +38,7 @@ $config = [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
+                    'logFile' => '@storage/logs/app.log',
                 ],
             ],
         ],
