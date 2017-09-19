@@ -265,78 +265,6 @@ function gd_version()
     return Image::gd_version();
 }
 
-if (!function_exists('file_get_contents')) {
-    /**
-     * 如果系统不存在file_get_contents函数则声明该函数
-     *
-     * @access  public
-     * @param   string $file
-     * @return  mix
-     */
-    function file_get_contents($file)
-    {
-        if (($fp = @fopen($file, 'rb')) === false) {
-            return false;
-        } else {
-            $fsize = @filesize($file);
-            if ($fsize) {
-                $contents = fread($fp, $fsize);
-            } else {
-                $contents = '';
-            }
-            fclose($fp);
-
-            return $contents;
-        }
-    }
-}
-
-if (!function_exists('file_put_contents')) {
-    define('FILE_APPEND', 'FILE_APPEND');
-
-    /**
-     * 如果系统不存在file_put_contents函数则声明该函数
-     *
-     * @access  public
-     * @param   string $file
-     * @param   mix $data
-     * @return  int
-     */
-    function file_put_contents($file, $data, $flags = '')
-    {
-        $contents = (is_array($data)) ? implode('', $data) : $data;
-
-        if ($flags == 'FILE_APPEND') {
-            $mode = 'ab+';
-        } else {
-            $mode = 'wb';
-        }
-
-        if (($fp = @fopen($file, $mode)) === false) {
-            return false;
-        } else {
-            $bytes = fwrite($fp, $contents);
-            fclose($fp);
-
-            return $bytes;
-        }
-    }
-}
-
-if (!function_exists('floatval')) {
-    /**
-     * 如果系统不存在 floatval 函数则声明该函数
-     *
-     * @access  public
-     * @param   mix $n
-     * @return  float
-     */
-    function floatval($n)
-    {
-        return (float)$n;
-    }
-}
-
 /**
  * 文件或目录权限检查函数
  *
@@ -834,7 +762,7 @@ function ecs_geoip($ip)
     }
 
     if ($fp === null) {
-        $fp = fopen(app_path('Libraries/Codetable/ipdata.dat'), 'rb');
+        $fp = fopen(app_path('libraries/codetable/ipdata.dat'), 'rb');
         if ($fp === false) {
             return 'Invalid IP data file';
         }
