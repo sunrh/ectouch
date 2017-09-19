@@ -1,7 +1,8 @@
 <?php
+Yii::setAlias('@app/migrations', dirname(__DIR__) . '/database/migrations');
 
-$params = require(__DIR__ . '/params.php');
-$db = require(__DIR__ . '/db.php');
+$params = require(__DIR__ . '/app.php');
+$db = require(__DIR__ . '/database.php');
 
 $config = [
     'id' => 'console',
@@ -9,7 +10,7 @@ $config = [
     'runtimePath' => '@runtime',
     'vendorPath' => '@vendor',
     'bootstrap' => ['log'],
-    'controllerNamespace' => 'app\commands',
+    'controllerNamespace' => 'app\console',
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -26,6 +27,11 @@ $config = [
         'db' => $db,
     ],
     'params' => $params,
+    'controllerMap' => [
+        'migration' => [
+            'class' => 'bizley\migration\controllers\MigrationController',
+        ],
+    ],
     /*
     'controllerMap' => [
         'fixture' => [ // Fixture generation command line.
