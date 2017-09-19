@@ -1,71 +1,208 @@
-# ECTouch 产品使用说明
+Yii 2 Basic Project Template
+============================
+
+Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
+rapidly creating small projects.
+
+The template contains the basic features including user login/logout and a contact page.
+It includes all commonly used configurations that would allow you to focus on adding new
+features to your application.
+
+[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-basic/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
+[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-basic/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
+[![Build Status](https://travis-ci.org/yiisoft/yii2-app-basic.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-basic)
+
+DIRECTORY STRUCTURE
+-------------------
+
+      assets/             contains assets definition
+      commands/           contains console commands (controllers)
+      config/             contains application configurations
+      controllers/        contains Web controller classes
+      mail/               contains view files for e-mails
+      models/             contains model classes
+      runtime/            contains files generated during runtime
+      tests/              contains various tests for the basic application
+      vendor/             contains dependent 3rd-party packages
+      views/              contains view files for the Web application
+      web/                contains the entry script and Web resources
 
 
-## ECTouch简介
 
-ECTouch是上海商创网络科技有限公司推出的一款开源免费移动商城网店系统，可以在手机上面卖商品的电子商务软件系统。能够帮助企业和个人快速构建手机移动商城并减少二次开发带来的成本。
+REQUIREMENTS
+------------
 
-采用稳定的MVC框架开发，执行效率、扩展性、稳定性值得信赖。MVC是一种将应用程序的逻辑层和表现层进行分离的方法。MVC分层有助于管理复杂的应用程序，因为您可以在一个时间内专门关注一个方面。例如，您可以在不依赖业务逻辑的情况下专注于视图设计。同时也让应用程序的测试更加容易。MVC分层同时也简化了分组开发。不同的开发人员可同时开发视图、控制器逻辑和业务逻辑。
+The minimum requirement by this project template that your Web server supports PHP 5.4.0.
 
-最新的国际标准HTML5+CSS3，在HTML5平台上，视频，音频，图象，动画，以及同设备的交互都被标准化，各个平台都正在完善对这一标准的支持，基于HTML5标准的一次开发，可以轻松的部署到各个平台，大大提高开发效率。
 
-## 平台需求
+INSTALLATION
+------------
 
-1、Windows 平台：
-IIS/Apache/Nginx + PHP5.2 + MySQL5.1
+### Install via Composer
 
-2、Linux/Unix 平台
-Apache/Nginx + PHP5.2 + MySQL5.1 (PHP在非安全模式下运行)
+If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
+at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 
-建议使用平台：Linux + Apache2.2 + PHP5.2/PHP5.3 + MySQL5.1
+You can then install this project template using the following command:
 
-3、PHP必须环境或启用的系统函数：
-curl
-allow_url_fopen
-GD扩展库
-MySQL扩展库
-系统函数 —— phpinfo、dir
+~~~
+php composer.phar global require "fxp/composer-asset-plugin:^1.3.1"
+php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
+~~~
 
-4、基本目录结构
-* /
-* /admin       默认后台管理目录（可任意改名）
-* /data        静态资源和系统缓存、配置项目录[必须可写入]
-* /include     核心程序目录
-* /plugins     插件程序目录
-* /themes      系统默认模板目录
+Now you should be able to access the application through the following URL, assuming `basic` is the directory
+directly under the Web root.
 
-5、PHP环境容易碰到的不兼容性问题
-* data目录没写入权限，导致管理后台无法上传文件；
-* php的上传的临时文件夹没设置好或没写入权限，这会导致文件上传的功能无法使用；
-* 出现莫名的错误，如安装时显示空白，这样能是由于系统没装载mysql扩展导致的。
-  
-## 程序安装使用
-* 安装并配置好ecshop程序
-* 下载ECTouch程序解压到本地目录
-* 上传程序目录中的/uploads到ecshop网站根目录下，并命名为mobile（原mobile目录重命名）
-* 浏览器中访问http://www.domain.com/mobile/index.php(domain.com表示你的域名)
-* 首次访问会进入安装界面，按照安装提示说明进行程序安装
+~~~
+http://localhost/basic/web/
+~~~
 
-## 特色功能
 
-* 手机短信验证码功能
-* 支持微信商城对接及微信支付
-* 订单包裹跟踪
-* 手机端第三方登录
-* 整站模块自适应宽度
-* 支持无线支付宝支付
-* 所有数据与ecshop后台无缝对接
+### Install from an Archive File
 
-## 社区交流
+Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
+a directory named `basic` that is directly under the Web root.
 
-* ECTouch官方主站       http://www.ectouch.cn
-* 技术支持论坛          http://bbs.ecmoban.com
-* 上海商创网络科技      http://www.ecmoban.com
+Set cookie validation key in `config/web.php` file to some random secret string:
 
-## 常见问题整理
+```php
+'request' => [
+    // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+    'cookieValidationKey' => '<secret random string goes here>',
+],
+```
 
-http://bbs.ecmoban.com/thread-28767-1-1.html
+You can then access the application through the following URL:
 
-## 功能预览
+~~~
+http://localhost/basic/web/
+~~~
 
-![image](http://ectouch.cn/data/assets/qrcode.png)
+
+CONFIGURATION
+-------------
+
+### Database
+
+Edit the file `config/db.php` with real data, for example:
+
+```php
+return [
+    'class' => 'yii\db\Connection',
+    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
+    'username' => 'root',
+    'password' => '1234',
+    'charset' => 'utf8',
+];
+```
+
+**NOTES:**
+- Yii won't create the database for you, this has to be done manually before you can access it.
+- Check and edit the other files in the `config/` directory to customize your application as required.
+- Refer to the README in the `tests` directory for information specific to basic application tests.
+
+
+
+TESTING
+-------
+
+Tests are located in `tests` directory. They are developed with [Codeception PHP Testing Framework](http://codeception.com/).
+By default there are 3 test suites:
+
+- `unit`
+- `functional`
+- `acceptance`
+
+Tests can be executed by running
+
+```
+vendor/bin/codecept run
+``` 
+
+The command above will execute unit and functional tests. Unit tests are testing the system components, while functional
+tests are for testing user interaction. Acceptance tests are disabled by default as they require additional setup since
+they perform testing in real browser. 
+
+
+### Running  acceptance tests
+
+To execute acceptance tests do the following:  
+
+1. Rename `tests/acceptance.suite.yml.example` to `tests/acceptance.suite.yml` to enable suite configuration
+
+2. Replace `codeception/base` package in `composer.json` with `codeception/codeception` to install full featured
+   version of Codeception
+
+3. Update dependencies with Composer 
+
+    ```
+    composer update  
+    ```
+
+4. Download [Selenium Server](http://www.seleniumhq.org/download/) and launch it:
+
+    ```
+    java -jar ~/selenium-server-standalone-x.xx.x.jar
+    ```
+
+    In case of using Selenium Server 3.0 with Firefox browser since v48 or Google Chrome since v53 you must download [GeckoDriver](https://github.com/mozilla/geckodriver/releases) or [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads) and launch Selenium with it:
+
+    ```
+    # for Firefox
+    java -jar -Dwebdriver.gecko.driver=~/geckodriver ~/selenium-server-standalone-3.xx.x.jar
+    
+    # for Google Chrome
+    java -jar -Dwebdriver.chrome.driver=~/chromedriver ~/selenium-server-standalone-3.xx.x.jar
+    ``` 
+    
+    As an alternative way you can use already configured Docker container with older versions of Selenium and Firefox:
+    
+    ```
+    docker run --net=host selenium/standalone-firefox:2.53.0
+    ```
+
+5. (Optional) Create `yii2_basic_tests` database and update it by applying migrations if you have them.
+
+   ```
+   tests/bin/yii migrate
+   ```
+
+   The database configuration can be found at `config/test_db.php`.
+
+
+6. Start web server:
+
+    ```
+    tests/bin/yii serve
+    ```
+
+7. Now you can run all available tests
+
+   ```
+   # run all available tests
+   vendor/bin/codecept run
+
+   # run acceptance tests
+   vendor/bin/codecept run acceptance
+
+   # run only unit and functional tests
+   vendor/bin/codecept run unit,functional
+   ```
+
+### Code coverage support
+
+By default, code coverage is disabled in `codeception.yml` configuration file, you should uncomment needed rows to be able
+to collect code coverage. You can run your tests and collect coverage with the following command:
+
+```
+#collect coverage for all tests
+vendor/bin/codecept run -- --coverage-html --coverage-xml
+
+#collect coverage only for unit tests
+vendor/bin/codecept run unit -- --coverage-html --coverage-xml
+
+#collect coverage for unit and functional tests
+vendor/bin/codecept run functional,unit -- --coverage-html --coverage-xml
+```
+
+You can see code coverage output under the `tests/_output` directory.
