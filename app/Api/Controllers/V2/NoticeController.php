@@ -1,10 +1,10 @@
 <?php
 
-namespace app\api\controllers\v2;
+namespace App\Api\Controllers\V2;
 
 use Yii;
-use app\api\models\v2\Card;
-use app\api\models\v2\Notice;
+use App\Api\Models\V2\Card;
+use App\Api\Models\V2\Notice;
 
 class NoticeController extends BaseController
 {

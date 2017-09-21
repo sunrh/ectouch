@@ -1,10 +1,10 @@
 <?php
 
-namespace app\api\controllers\v2;
+namespace App\Api\Controllers\V2;
 
 use Yii;
-use app\api\models\v2\Article;
-use app\api\models\v2\ArticleCategory;
+use App\Api\Models\V2\Article;
+use App\Api\Models\V2\ArticleCategory;
 
 class ArticleController extends BaseController
 {

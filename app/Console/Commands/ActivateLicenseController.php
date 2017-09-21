@@ -1,8 +1,8 @@
 <?php
 
-namespace app\console;
+namespace App\Console\Commands;
 
-use app\api\models\v2\License;
+use App\Api\Models\V2\License;
 use yii\console\Controller;
 
 class ActivateLicenseController extends Controller

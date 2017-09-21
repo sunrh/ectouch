@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace App\Modules\Admin\Controllers;
 
 /**
  * Class GoodsBookingController
- * @package app\modules\admin\controllers
+ * @package App\Modules\Admin\Controllers
  */
 class GoodsBookingController extends Controller
 {

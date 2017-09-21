@@ -1,14 +1,14 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace App\Modules\Admin\Controllers;
 
-use app\libraries\Captcha;
-use app\libraries\Exchange;
+use App\Libraries\Captcha;
+use App\Libraries\Exchange;
 
 /**
  * 管理员信息以及权限管理程序
  * Class PrivilegeController
- * @package app\modules\admin\controllers
+ * @package App\Modules\Admin\Controllers
  */
 class PrivilegeController extends Controller
 {

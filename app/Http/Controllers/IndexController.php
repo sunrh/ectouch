@@ -1,8 +1,8 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
-use app\libraries\Json;
+use App\Libraries\Json;
 
 /**
  * Class IndexController

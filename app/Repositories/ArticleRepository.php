@@ -1,13 +1,13 @@
 <?php
 
-namespace app\repositorys;
+namespace App\Repositorys;
 
-use app\contracts\repositories\ArticleInterface;
-use app\models\Article;
+use App\Contracts\Repositories\ArticleInterface;
+use App\Models\Article;
 
 /**
  * Class ArticleRepository
- * @package app\repositorys
+ * @package App\Repositorys
  */
 class ArticleRepository implements ArticleInterface
 {

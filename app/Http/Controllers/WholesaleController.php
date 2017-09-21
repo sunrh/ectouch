@@ -1,11 +1,11 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
 /**
  * 批发
  * Class WholesaleController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class WholesaleController extends Controller
 {

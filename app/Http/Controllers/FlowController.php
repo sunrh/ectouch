@@ -1,15 +1,15 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
-use app\libraries\Captcha;
-use app\libraries\Json;
-use app\libraries\sms;
+use App\Libraries\Captcha;
+use App\Libraries\Json;
+use App\Libraries\sms;
 
 /**
  * 购物流程
  * Class FlowController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class FlowController extends Controller
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\api\models\v2;
+namespace App\Api\Models\V2;
 
-use app\api\libraries\Token;
+use App\Api\Libraries\Token;
 
 class CollectGoods extends Foundation
 {
@@ -102,6 +102,6 @@ class CollectGoods extends Foundation
 
     public function goods()
     {
-        return $this->hasOne('app\api\models\v2\Goods', 'goods_id', 'goods_id');
+        return $this->hasOne('App\Api\Models\V2\Goods', 'goods_id', 'goods_id');
     }
 }

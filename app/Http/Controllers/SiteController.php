@@ -1,14 +1,14 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
+use App\Models\LoginForm;
+use App\Models\ContactForm;
 
 class SiteController extends Controller
 {

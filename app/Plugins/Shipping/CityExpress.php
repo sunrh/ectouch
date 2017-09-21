@@ -1,6 +1,6 @@
 <?php
 
-namespace app\plugins\shipping;
+namespace App\Plugins\Shipping;
 
 load_lang('shipping/city_express');
 
@@ -45,7 +45,7 @@ if (isset($set_modules) && $set_modules == true) {
 /**
  * 城际快递插件
  * Class CityExpress
- * @package app\plugins\shipping
+ * @package App\Plugins\Shipping
  */
 class CityExpress
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace App\Modules\Admin\Controllers;
 
 /**
  * Class MessageController
- * @package app\modules\admin\controllers
+ * @package App\Modules\Admin\Controllers
  */
 class MessageController extends Controller
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace app\libraries;
+namespace App\Libraries;
 
 /**
  * JSON
  * Class Json
- * @package app\libraries
+ * @package App\Libraries
  */
 class Json
 {

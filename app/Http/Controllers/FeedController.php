@@ -1,8 +1,8 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
-use app\libraries\rss\RSSBuilder;
+use App\Libraries\Rss\RSSBuilder;
 
 define('INIT_NO_USERS', true);
 define('INIT_NO_SMARTY', true);
@@ -10,7 +10,7 @@ define('INIT_NO_SMARTY', true);
 /**
  * RSS Feed 生成程序
  * Class FeedController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class FeedController extends Controller
 {

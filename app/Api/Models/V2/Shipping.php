@@ -1,9 +1,9 @@
 <?php
 
-namespace app\api\models\v2;
+namespace App\Api\Models\V2;
 
 use Yii;
-use app\api\libraries\Token;
+use App\Api\Libraries\Token;
 
 /**
  * This is the model class for table "{{%shipping}}".

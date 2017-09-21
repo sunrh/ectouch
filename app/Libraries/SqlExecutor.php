@@ -1,11 +1,11 @@
 <?php
 
-namespace app\libraries;
+namespace App\Libraries;
 
 /**
  * SQL语句执行类
  * Class SqlExecutor
- * @package app\libraries
+ * @package App\Libraries
  */
 class SqlExecutor
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\api\controllers\v2;
+namespace App\Api\Controllers\V2;
 
-use app\api\models\v2\Foundation;
+use App\Api\Models\V2\Foundation;
 
 class AccessController extends BaseController
 {

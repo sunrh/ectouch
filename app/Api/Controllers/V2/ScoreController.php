@@ -1,10 +1,10 @@
 <?php
 
-namespace app\api\controllers\v2;
+namespace App\Api\Controllers\V2;
 
-use app\api\models\v2\Member;
-use app\api\models\v2\Features;
-use app\api\models\v2\AccountLog;
+use App\Api\Models\V2\Member;
+use App\Api\Models\V2\Features;
+use App\Api\Models\V2\AccountLog;
 
 class ScoreController extends BaseController
 {

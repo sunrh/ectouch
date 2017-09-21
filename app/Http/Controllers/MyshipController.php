@@ -1,11 +1,11 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
 /**
  * 支付配送DEMO
  * Class MyshipController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class MyshipController extends Controller
 {

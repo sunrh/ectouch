@@ -1,8 +1,8 @@
 <?php
 
-namespace app\api\controllers\v2;
+namespace App\Api\Controllers\V2;
 
-use app\api\models\v2\AreaCode;
+use App\Api\Models\V2\AreaCode;
 
 class AreaCodeController extends BaseController
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\api\models\v2;
+namespace App\Api\Models\V2;
 
-use app\api\models\v2\ShopConfig;
+use App\Api\Models\V2\ShopConfig;
 
 class Invoice
 {

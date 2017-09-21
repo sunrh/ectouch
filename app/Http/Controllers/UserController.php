@@ -1,14 +1,14 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
-use app\libraries\Captcha;
-use app\libraries\Json;
+use App\Libraries\Captcha;
+use App\Libraries\Json;
 
 /**
  * 会员中心
  * Class UserController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class UserController extends Controller
 {

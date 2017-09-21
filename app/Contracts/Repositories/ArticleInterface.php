@@ -1,6 +1,6 @@
 <?php
 
-namespace app\contracts\repositories;
+namespace App\Contracts\Repositories;
 
 interface ArticleInterface
 {

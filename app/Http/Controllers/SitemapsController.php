@@ -1,13 +1,13 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
-use app\libraries\sitemap;
+use App\Libraries\Sitemap;
 
 /**
  * 网站地图
  * Class SitemapsController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class SitemapsController extends Controller
 {

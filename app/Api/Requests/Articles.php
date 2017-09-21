@@ -1,6 +1,6 @@
 <?php
 
-namespace app\api\requests;
+namespace App\Api\Requests;
 
 use yii\base\Model;
 

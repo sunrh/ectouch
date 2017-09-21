@@ -1,8 +1,8 @@
 <?php
 
-namespace app\notifications;
+namespace App\Notifications;
 
-use app\channels\SmsChannel;
+use App\Channels\SmsChannel;
 
 class InvoicePaid extends Notification
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\api\models\v2;
+namespace App\Api\Models\V2;
 
 use Yii;
 use yii\db\Query;

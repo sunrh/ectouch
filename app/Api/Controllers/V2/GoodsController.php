@@ -1,10 +1,10 @@
 <?php
 
-namespace app\api\controllers\v2;
+namespace App\Api\Controllers\V2;
 
 use Yii;
-use app\api\models\v2\Goods;
-use app\api\models\v2\GoodsCategory;
+use App\Api\Models\V2\Goods;
+use App\Api\Models\V2\GoodsCategory;
 
 class GoodsController extends BaseController
 {

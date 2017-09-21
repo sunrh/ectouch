@@ -1,10 +1,10 @@
 <?php
 
-namespace app\plugins\third_party\erp;
+namespace App\Plugins\ThirdParty\Erp;
 
 /**
  * Class Wdgj
- * @package app\plugins\third_party\erp
+ * @package App\Plugins\ThirdParty\Erp
  */
 class Wdgj
 {

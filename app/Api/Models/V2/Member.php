@@ -1,11 +1,11 @@
 <?php
 
-namespace app\api\models\v2;
+namespace App\Api\Models\V2;
 
 use Yii;
-use app\api\libraries\Token;
+use App\Api\Libraries\Token;
 use yii\httpclient\Client;
-use app\api\models\v2\WechatUser;
+use App\Api\Models\V2\WechatUser;
 
 /**
  * This is the model class for table "{{%users}}".

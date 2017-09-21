@@ -1,8 +1,8 @@
 <?php
 
-namespace app\api\controllers\v2;
+namespace App\Api\Controllers\V2;
 
-use app\api\models\v2\Region;
+use App\Api\Models\V2\Region;
 
 class RegionController extends BaseController
 {

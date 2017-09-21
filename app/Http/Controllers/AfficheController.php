@@ -1,13 +1,13 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
 define('INIT_NO_SMARTY', true);
 
 /**
  * 广告处理
  * Class AfficheController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class AfficheController extends Controller
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
 /**
  * 文章内容
  * Class ArticleController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class ArticleController extends Controller
 {

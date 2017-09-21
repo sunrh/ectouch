@@ -1,11 +1,11 @@
 <?php
 
-namespace app\modules\admin\controllers;
-use app\libraries\Exchange;
+namespace App\Modules\Admin\Controllers;
+use App\Libraries\Exchange;
 
 /**
  * Class ExchangeGoodsController
- * @package app\modules\admin\controllers
+ * @package App\Modules\Admin\Controllers
  */
 class ExchangeGoodsController extends Controller
 {

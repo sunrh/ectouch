@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace App\Modules\Admin\Controllers;
 
 /**
  * Class SaleOrderController
- * @package app\modules\admin\controllers
+ * @package App\Modules\Admin\Controllers
  */
 class SaleOrderController extends Controller
 {

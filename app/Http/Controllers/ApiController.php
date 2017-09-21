@@ -1,14 +1,14 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
-use app\libraries\Json;
+use App\Libraries\Json;
 use DOMDocument;
 
 /**
  * OPEN API统一接口
  * Class ApiController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class ApiController extends Controller
 {

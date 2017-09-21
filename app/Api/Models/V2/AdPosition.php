@@ -1,6 +1,6 @@
 <?php
 
-namespace app\api\models\v2;
+namespace App\Api\Models\V2;
 
 use Yii;
 
@@ -55,6 +55,6 @@ class AdPosition extends Foundation
 
     public function getPosition()
     {
-        return $this->hasOne('app\api\models\v2\Ad', 'position_id', 'position_id');
+        return $this->hasOne('App\Api\Models\V2\Ad', 'position_id', 'position_id');
     }
 }

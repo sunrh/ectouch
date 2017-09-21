@@ -1,10 +1,10 @@
 <?php
 
-namespace app\plugins\connect;
+namespace App\Plugins\Connect;
 
 /**
  * Class Wechat
- * @package app\plugins\connect
+ * @package App\Plugins\Connect
  */
 class Wechat
 {

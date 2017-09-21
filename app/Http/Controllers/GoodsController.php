@@ -1,13 +1,13 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
-use app\libraries\Json;
+use App\Libraries\Json;
 
 /**
  * 商品详情
  * Class GoodsController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class GoodsController extends Controller
 {

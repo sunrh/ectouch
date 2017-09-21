@@ -1,11 +1,11 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
 /**
  * 优惠活动
  * Class ActivityController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class ActivityController extends Controller
 {

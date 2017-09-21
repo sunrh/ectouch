@@ -1,10 +1,10 @@
 <?php
 
-namespace app\api\controllers\v2;
+namespace App\Api\Controllers\V2;
 
-use app\api\models\v2\Goods;
-use app\api\models\v2\ShopConfig;
-use app\api\models\v2\Ad;
+use App\Api\Models\V2\Goods;
+use App\Api\Models\V2\ShopConfig;
+use App\Api\Models\V2\Ad;
 
 class SiteController extends BaseController
 {

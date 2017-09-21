@@ -1,11 +1,11 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace App\Modules\Admin\Controllers;
 
 /**
  * 站外JS投放的统计程序
  * Class AdsenseController
- * @package app\modules\admin\controllers
+ * @package App\Modules\Admin\Controllers
  */
 class AdsenseController extends Controller
 {

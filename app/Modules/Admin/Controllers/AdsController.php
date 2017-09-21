@@ -1,14 +1,14 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace App\Modules\Admin\Controllers;
 
-use app\libraries\Exchange;
-use app\libraries\Image;
+use App\Libraries\Exchange;
+use App\Libraries\Image;
 
 /**
  * 广告管理程序
  * Class AdsController
- * @package app\modules\admin\controllers
+ * @package App\Modules\Admin\Controllers
  */
 class AdsController extends Controller
 {

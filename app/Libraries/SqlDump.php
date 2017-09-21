@@ -1,6 +1,6 @@
 <?php
 
-namespace app\libraries;
+namespace App\Libraries;
 
 /**
  * 对mysql敏感字符串转义
@@ -35,7 +35,7 @@ function dump_null_string($str)
 /**
  * 数据库导出类
  * Class SqlDump
- * @package app\libraries
+ * @package App\Libraries
  */
 class SqlDump
 {

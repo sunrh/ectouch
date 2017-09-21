@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace App\Modules\Admin\Controllers;
 
 /**
  * Class FlashplayController
- * @package app\modules\admin\controllers
+ * @package App\Modules\Admin\Controllers
  */
 class FlashplayController extends Controller
 {

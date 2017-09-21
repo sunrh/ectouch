@@ -1,11 +1,11 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
 /**
  * 搜索
  * Class SearchController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class SearchController extends Controller
 {

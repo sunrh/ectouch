@@ -1,15 +1,15 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
-use app\libraries\Json;
+use App\Libraries\Json;
 
 define('INIT_NO_USERS', true);
 define('INIT_NO_SMARTY', true);
 
 /**
  * Class RegionController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class RegionController extends Controller
 {

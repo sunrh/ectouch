@@ -1,15 +1,15 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
-use app\libraries\Captcha;
+use App\Libraries\Captcha;
 
 define('INIT_NO_SMARTY', true);
 
 /**
  * 生成验证码
  * Class CaptchaController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class CaptchaController extends Controller
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace app\api\models\v2;
+namespace App\Api\Models\V2;
 
-use app\api\libraries\Token;
-use app\api\libraries\Header;
+use App\Api\Libraries\Token;
+use App\Api\Libraries\Header;
 
 class Device extends Foundation
 {

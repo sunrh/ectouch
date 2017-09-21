@@ -1,13 +1,13 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
-use app\libraries\Captcha;
+use App\Libraries\Captcha;
 
 /**
  * 留言板
  * Class MessageController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class MessageController extends Controller
 {

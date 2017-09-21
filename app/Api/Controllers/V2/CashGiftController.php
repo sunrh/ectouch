@@ -1,9 +1,9 @@
 <?php
 
-namespace app\api\controllers\v2;
+namespace App\Api\Controllers\V2;
 
-use app\api\models\v2\BonusType;
-use app\api\models\v2\Features;
+use App\Api\Models\V2\BonusType;
+use App\Api\Models\V2\Features;
 
 class CashGiftController extends BaseController
 {

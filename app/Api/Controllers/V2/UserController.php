@@ -1,11 +1,11 @@
 <?php
 
-namespace app\api\controllers\v2;
+namespace App\Api\Controllers\V2;
 
 use Yii;
-use app\api\models\v2\Member;
-use app\api\models\v2\RegFields;
-use app\api\models\v2\Features;
+use App\Api\Models\V2\Member;
+use App\Api\Models\V2\RegFields;
+use App\Api\Models\V2\Features;
 
 class UserController extends BaseController
 {

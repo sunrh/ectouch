@@ -1,6 +1,6 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
 define('INIT_NO_USERS', true);
 define('INIT_NO_SMARTY', true);
@@ -8,7 +8,7 @@ define('INIT_NO_SMARTY', true);
 /**
  * 轮播图片程序
  * Class CycleImageController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class CycleImageController extends Controller
 {

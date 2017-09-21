@@ -1,12 +1,12 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace App\Modules\Admin\Controllers;
 
-use app\libraries\sms;
+use App\Libraries\sms;
 
 /**
  * Class SmsController
- * @package app\modules\admin\controllers
+ * @package App\Modules\Admin\Controllers
  */
 class SmsController extends Controller
 {

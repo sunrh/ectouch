@@ -1,6 +1,6 @@
 <?php
 
-namespace app\services\wechat;
+namespace App\Services\Wechat;
 
 class JSSDK
 {

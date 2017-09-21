@@ -1,10 +1,10 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
 /**
  * Class PmController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class PmController extends Controller
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace app\api\controllers\v2;
+namespace App\Api\Controllers\V2;
 
-use app\api\models\v2\Order;
-use app\api\models\v2\Payment;
-use app\api\models\v2\Features;
+use App\Api\Models\V2\Order;
+use App\Api\Models\V2\Payment;
+use App\Api\Models\V2\Features;
 
 class OrderController extends BaseController
 {

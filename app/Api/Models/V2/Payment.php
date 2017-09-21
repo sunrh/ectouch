@@ -1,12 +1,12 @@
 <?php
 
-namespace app\api\models\v2;
+namespace App\Api\Models\V2;
 
 use Yii;
-use app\api\libraries\Token;
-use app\api\libraries\Header;
-use app\services\payment\wxpay\WxPay;
-use app\services\payment\wxpay\WxResponse;
+use App\Api\Libraries\Token;
+use App\Api\Libraries\Header;
+use App\Services\payment\wxpay\WxPay;
+use App\Services\payment\wxpay\WxResponse;
 use yii\helpers\Url;
 
 /**

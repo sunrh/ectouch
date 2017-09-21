@@ -1,6 +1,6 @@
 <?php
 
-namespace app\channels;
+namespace App\Channels;
 
 class WechatChannel
 {

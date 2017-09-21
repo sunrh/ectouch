@@ -1,11 +1,11 @@
 <?php
 
-namespace app\libraries\sitemap;
+namespace App\Libraries\Sitemap;
 
 /**
  * Google sitemap 类
  * Class GoogleSitemap
- * @package app\libraries
+ * @package App\Libraries
  */
 class GoogleSitemap
 {

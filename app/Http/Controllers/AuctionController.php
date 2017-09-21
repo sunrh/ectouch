@@ -1,11 +1,11 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
 /**
  * 拍卖
  * Class AuctionController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class AuctionController extends Controller
 {

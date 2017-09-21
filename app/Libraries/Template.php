@@ -1,13 +1,13 @@
 <?php
 
-namespace app\libraries;
+namespace App\Libraries;
 
 use yii\helpers\Html;
 
 /**
  * 模版类
  * Class Template
- * @package app\libraries
+ * @package App\Libraries
  */
 class Template
 {

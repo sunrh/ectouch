@@ -1,8 +1,8 @@
 <?php
 
-namespace app\api\controllers\v2;
+namespace App\Api\Controllers\V2;
 
-use app\api\models\v2\Cart;
+use App\Api\Models\V2\Cart;
 
 class CartController extends BaseController
 {

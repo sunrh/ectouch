@@ -1,6 +1,6 @@
 <?php
 
-namespace app\plugins\payment;
+namespace App\Plugins\Payment;
 
 load_lang('payment/wxpay');
 

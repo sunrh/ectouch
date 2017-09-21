@@ -1,11 +1,11 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace App\Modules\Admin\Controllers;
 
 /**
  * 管理中心商店设置
  * Class ShopConfigController
- * @package app\modules\admin\controllers
+ * @package App\Modules\Admin\Controllers
  */
 class ShopConfigController extends Controller
 {

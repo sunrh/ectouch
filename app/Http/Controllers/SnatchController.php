@@ -1,11 +1,11 @@
 <?php
 
-namespace app\http\controllers;
+namespace App\Http\Controllers;
 
 /**
  * 夺宝奇兵
  * Class SnatchController
- * @package app\http\controllers
+ * @package App\Http\Controllers
  */
 class SnatchController extends Controller
 {

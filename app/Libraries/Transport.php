@@ -1,12 +1,12 @@
 <?php
 
-namespace app\libraries;
+namespace App\Libraries;
 
 /**
  * 服务器之间数据传输器。采集到的信息包括HTTP头和HTTP体，
  * 并以一维数组的形式返回，如：array('header' => 'bar', 'body' => 'foo')。
  * Class Transport
- * @package app\libraries
+ * @package App\Libraries
  */
 class Transport
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace app\api\controllers\v2;
+namespace App\Api\Controllers\V2;
 
-use app\api\models\v2\Push;
-use app\api\models\v2\Device;
+use App\Api\Models\V2\Push;
+use App\Api\Models\V2\Device;
 
 class MessageController extends BaseController
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace app\libraries;
+namespace App\Libraries;
 
 /**
  * 字符集转换类
  * Class Iconv
- * @package app\libraries
+ * @package App\Libraries
  */
 class Iconv
 {

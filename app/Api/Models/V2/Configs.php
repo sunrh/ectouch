@@ -1,9 +1,9 @@
 <?php
 
-namespace app\api\models\v2;
+namespace App\Api\Models\V2;
 
-use app\api\libraries\Token;
-use app\api\libraries\XXTEA;
+use App\Api\Libraries\Token;
+use App\Api\Libraries\XXTEA;
 use App\Services\Cloud\Client;
 use App\Services\QiNiu\QiNiu;
 use App\Services\Other\JSSDK;

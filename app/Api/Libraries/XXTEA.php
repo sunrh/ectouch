@@ -1,6 +1,6 @@
 <?php
 
-namespace app\api\libraries;
+namespace App\Api\Libraries;
 
 class XXTEA
 {

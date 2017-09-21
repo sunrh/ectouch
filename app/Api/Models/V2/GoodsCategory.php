@@ -1,6 +1,6 @@
 <?php
 
-namespace app\api\models\v2;
+namespace App\Api\Models\V2;
 
 use Yii;
 use yii\data\Pagination;
@@ -211,11 +211,11 @@ class GoodsCategory extends Foundation
 
     public function parentCategory()
     {
-        return $this->belongsTo('app\api\models\v2\GoodsCategory', 'parent_id', 'id');
+        return $this->belongsTo('App\Api\Models\V2\GoodsCategory', 'parent_id', 'id');
     }
 
     public function categories()
     {
-        return $this->hasMany('app\api\models\v2\GoodsCategory', 'parent_id', 'id');
+        return $this->hasMany('App\Api\Models\V2\GoodsCategory', 'parent_id', 'id');
     }
 }

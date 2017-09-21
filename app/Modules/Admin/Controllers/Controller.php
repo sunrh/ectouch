@@ -1,19 +1,19 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace App\Modules\Admin\Controllers;
 
-use app\libraries\Captcha;
-use app\libraries\Error;
-use app\libraries\Mysql;
-use app\libraries\session;
-use app\libraries\shop;
-use app\libraries\Template;
+use App\Libraries\Captcha;
+use App\Libraries\Error;
+use App\Libraries\Mysql;
+use App\Libraries\session;
+use App\Libraries\shop;
+use App\Libraries\Template;
 use Yii;
 use yii\web\Controller as BaseController;
 
 /**
  * Class Controller
- * @package app\modules\admin\controllers
+ * @package App\Modules\Admin\Controllers
  */
 class Controller extends BaseController
 {

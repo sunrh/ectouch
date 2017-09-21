@@ -1,12 +1,12 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace App\Modules\Admin\Controllers;
 
-use app\libraries\Exchange;
+use App\Libraries\Exchange;
 
 /**
  * Class RegFieldsController
- * @package app\modules\admin\controllers
+ * @package App\Modules\Admin\Controllers
  */
 class RegFieldsController extends Controller
 {

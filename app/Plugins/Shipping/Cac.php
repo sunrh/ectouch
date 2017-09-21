@@ -1,6 +1,6 @@
 <?php
 
-namespace app\plugins\shipping;
+namespace App\Plugins\Shipping;
 
 /**
  *  上门取货插件

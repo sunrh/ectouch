@@ -1,12 +1,12 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace App\Modules\Admin\Controllers;
 
-use app\libraries\Exchange;
+use App\Libraries\Exchange;
 
 /**
  * Class CronController
- * @package app\modules\admin\controllers
+ * @package App\Modules\Admin\Controllers
  */
 class CronController extends Controller
 {

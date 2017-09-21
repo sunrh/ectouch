@@ -1,8 +1,8 @@
 <?php
 
-namespace app\custom\controllers;
+namespace App\Custom\Controllers;
 
-use app\http\controllers\IndexController as BaseController;
+use App\Http\Controllers\IndexController as BaseController;
 
 class IndexController extends BaseController
 {

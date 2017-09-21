@@ -1,14 +1,14 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace App\Modules\Admin\Controllers;
 
-use app\libraries\Json;
-use app\libraries\Transport;
+use App\Libraries\Json;
+use App\Libraries\Transport;
 
 /**
  * 云服务接口
  * Class CloudController
- * @package app\modules\admin\controllers
+ * @package App\Modules\Admin\Controllers
  */
 class CloudController extends Controller
 {

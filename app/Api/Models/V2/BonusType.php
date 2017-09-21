@@ -1,8 +1,8 @@
 <?php
 
-namespace app\api\models\v2;
+namespace App\Api\Models\V2;
 
-use app\api\libraries\Token;
+use App\Api\Libraries\Token;
 
 class BonusType extends Foundation
 {
@@ -87,7 +87,7 @@ class BonusType extends Foundation
 
     public function userbonus()
     {
-        return $this->hasOne('app\api\models\v2\UserBonus', 'bonus_type_id', 'type_id');
+        return $this->hasOne('App\Api\Models\V2\UserBonus', 'bonus_type_id', 'type_id');
     }
 
     public function getIdAttribute()

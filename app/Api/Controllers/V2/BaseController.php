@@ -1,13 +1,13 @@
 <?php
 
-namespace app\api\controllers\v2;
+namespace App\Api\Controllers\V2;
 
 use Yii;
 use yii\base\DynamicModel;
 use yii\web\Controller;
 use yii\web\Response;
-use app\api\models\v2\Foundation;
-use app\api\libraries\Token;
+use App\Api\Models\V2\Foundation;
+use App\Api\Libraries\Token;
 
 class BaseController extends Controller
 {

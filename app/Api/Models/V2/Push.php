@@ -1,7 +1,7 @@
 <?php
-namespace app\api\models\v2;
+namespace App\Api\Models\V2;
 
-use app\api\libraries\Token;
+use App\Api\Libraries\Token;
 
 class Push extends Foundation
 {
