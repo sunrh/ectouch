@@ -63,7 +63,7 @@ class MessageController extends Controller
 
             if (add_message($message)) {
                 if (intval($GLOBALS['_CFG']['captcha']) & CAPTCHA_MESSAGE) {
-                    session()->remove($validator->session_word);
+                    session()->forget($validator->session_word);
                 } else {
                     session(['send_time' => $cur_time]);
                 }

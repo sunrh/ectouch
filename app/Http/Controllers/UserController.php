@@ -610,8 +610,8 @@ class UserController extends Controller
             } else {
                 session(['user_id' => session('temp_user')]);
                 session(['user_name' => session('temp_user_name')]);
-                session()->remove('temp_user');
-                session()->remove('temp_user_name');
+                session()->forget('temp_user');
+                session()->forget('temp_user_name');
                 $this->smarty->assign('uid', session('user_id'));
                 $this->smarty->assign('action', 'reset_password');
                 $this->smarty->display('user_passport.dwt');

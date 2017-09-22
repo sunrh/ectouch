@@ -115,7 +115,7 @@ class IndexController extends Controller
         if ($_REQUEST['act'] == 'main') {
             //寮€搴楀悜瀵肩?涓€姝
             if (session()->has('shop_guide') && session('shop_guide') === true) {
-                session()->remove('shop_guide');
+                session()->forget('shop_guide');
 
                 ecs_header("Location: ./index.php?act=first\n");
 

@@ -763,10 +763,10 @@ class IntegrateController extends Controller
                 $result['end'] = 1;
 
                 /* 清理多余信息 */
-                session()->remove('cfg');
-                session()->remove('code');
-                session()->remove('task');
-                session()->remove('domain');
+                session()->forget('cfg');
+                session()->forget('code');
+                session()->forget('task');
+                session()->forget('domain');
                 $sql = "UPDATE " . $this->ecs->table('users') . " set flag = 0, alias = '' WHERE flag > 0";
                 $this->db->query($sql);
                 die($json->encode($result));

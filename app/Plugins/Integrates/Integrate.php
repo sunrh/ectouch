@@ -504,7 +504,7 @@ class Integrate
     public function set_session($username = '')
     {
         if (empty($username)) {
-            session()->destroy();
+            session()->flush();
         } else {
             $sql = "SELECT user_id, password, email FROM " . $GLOBALS['ecs']->table('users') . " WHERE user_name='$username' LIMIT 1";
             $row = $GLOBALS['db']->getRow($sql);

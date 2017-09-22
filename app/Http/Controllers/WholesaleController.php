@@ -255,7 +255,7 @@ class WholesaleController extends Controller
         if ($_REQUEST['act'] == 'drop_goods') {
             $key = intval($_REQUEST['key']);
             if (session()->has('wholesale_goods.' . $key)) {
-                session()->remove('wholesale_goods.' . $key);
+                session()->forget('wholesale_goods.' . $key);
             }
 
             /* 刷新页面 */
@@ -358,7 +358,7 @@ class WholesaleController extends Controller
             }
 
             /* 清空购物车 */
-            session()->remove('wholesale_goods');
+            session()->forget('wholesale_goods');
 
             /* 提示 */
             show_message(sprintf($GLOBALS['_LANG']['ws_order_submitted'], $order['order_sn']), $GLOBALS['_LANG']['ws_return_home'], 'index.php');

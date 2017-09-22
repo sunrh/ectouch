@@ -33,7 +33,7 @@ class RoleController extends Controller
             cookie('ECSCP[admin_id]', '', 1);
             cookie('ECSCP[admin_pass]', '', 1);
 
-            session()->destroy();
+            session()->flush();
 
             $_REQUEST['act'] = 'login';
         }

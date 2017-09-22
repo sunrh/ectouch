@@ -1529,9 +1529,9 @@ class FlowController extends Controller
             $this->smarty->assign('order_submit_back', sprintf($GLOBALS['_LANG']['order_submit_back'], $GLOBALS['_LANG']['back_home'], $GLOBALS['_LANG']['goto_user_center'])); // 返回提示
 
             user_uc_call('add_feed', array($order['order_id'], BUY_GOODS)); //推送feed到uc
-            session()->remove('flow_consignee'); // 清除session中保存的收货人信息
-            session()->remove('flow_order');
-            session()->remove('direct_shopping');
+            session()->forget('flow_consignee'); // 清除session中保存的收货人信息
+            session()->forget('flow_order');
+            session()->forget('direct_shopping');
         }
 
         /*------------------------------------------------------ */
