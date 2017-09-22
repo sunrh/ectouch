@@ -99,7 +99,8 @@ class Template
         error_reporting($this->_errorlevel);
         $this->_seterror--;
 
-        $out = preg_replace('/<head>/i', "<head>\n\r" . Html::csrfMetaTags(), $out);
+        $csrf_token = '<meta name="csrf-token" content="' . csrf_token() . '">';
+        $out = preg_replace('/<head>/i', "<head>\n\r" . $csrf_token, $out);
         $out = preg_replace('/<\/form>/i', csrf_field() . "\r\n</form>", $out);
 
         echo $out;
