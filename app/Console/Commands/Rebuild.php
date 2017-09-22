@@ -2,23 +2,33 @@
 
 namespace App\Console\Commands;
 
-use yii\console\Controller;
+use Illuminate\Console\Command;
 
-class RebuildController extends Controller
+class Rebuild extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:rebuild';
+    protected $signature = 'command:name';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'rebuild the application';
+    protected $description = 'Command description';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     /**
      * Execute the console command.
