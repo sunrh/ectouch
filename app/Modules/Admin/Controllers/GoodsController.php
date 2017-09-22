@@ -134,8 +134,8 @@ class GoodsController extends Controller
             if ($is_add) {
                 /* 默认值 */
                 $last_choose = array(0, 0);
-                if (!empty(cookie('ectouch_cp_last_choose'))) {
-                    $last_choose = explode('|', cookie('ectouch_cp_last_choose'));
+                if (!empty(cookie('ectouch_cp_last_choose')->getValue())) {
+                    $last_choose = explode('|', cookie('ectouch_cp_last_choose')->getValue());
                 }
                 $goods = array(
                     'goods_id' => 0,

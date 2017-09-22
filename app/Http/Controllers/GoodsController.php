@@ -209,8 +209,8 @@ class GoodsController extends Controller
         }
 
         /* 记录浏览历史 */
-        if (!empty(cookie('ectouch_history'))) {
-            $history = explode(',', cookie('ectouch_history'));
+        if (!empty(cookie('ectouch_history')->getValue())) {
+            $history = explode(',', cookie('ectouch_history')->getValue());
 
             array_unshift($history, $goods_id);
             $history = array_unique($history);

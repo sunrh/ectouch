@@ -7,11 +7,16 @@ use App\Libraries\Mysql;
 use App\Libraries\session;
 use App\Libraries\shop;
 use App\Libraries\Template;
-use Yii;
-use yii\web\Controller as BaseController;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
     protected $ecs;
     protected $db;
     protected $err;
@@ -20,12 +25,12 @@ class Controller extends BaseController
     protected $_CFG;
     protected $user;
 
-    public function init()
+    public function __construct(Request $request)
     {
         define('PHP_SELF', basename(substr(basename($_SERVER['REQUEST_URI']), 0, stripos(basename($_SERVER['REQUEST_URI']), '?')), '.php'));
 
-        $_GET = app('request')->get();
-        $_POST = app('request')->post();
+        $_GET = $request->query() + $request->route()->parameters();
+        $_POST = $request->post();
         $_REQUEST = $_GET + $_POST;
         $_REQUEST['act'] = isset($_REQUEST['act']) ? $_REQUEST['act'] : '';
 
@@ -62,7 +67,7 @@ class Controller extends BaseController
                     $this->user = $GLOBALS['user'] = &init_users();
                 }
             }
-            session()->destroy();
+            session()->flush();
             session(['user_id' => 0]);
             session(['user_name' => '']);
             session(['email' => '']);
@@ -158,19 +163,19 @@ class Controller extends BaseController
             /**
              * session 不存在，检查cookie
              */
-            if (!empty(cookie('ectouch_user_id')) && !empty(cookie('ectouch_password'))) {
+            if (!empty(cookie('ectouch_user_id')->getValue()) && !empty(cookie('ectouch_password')->getValue())) {
                 // 找到了cookie, 验证cookie信息
                 $sql = 'SELECT user_id, user_name, password ' .
                     ' FROM ' . $this->ecs->table('users') .
-                    " WHERE user_id = '" . intval(cookie('ectouch_user_id')) . "' AND password = '" . cookie('ectouch_password') . "'";
+                    " WHERE user_id = '" . intval(cookie('ectouch_user_id')->getValue()) . "' AND password = '" . cookie('ectouch_password')->getValue() . "'";
 
                 $row = $this->db->GetRow($sql);
 
                 if (!$row) {
                     // 没有找到这个记录
                     $time = 0;
-                    cookie("ectouch_user_id", '', $time, '/');
-                    cookie("ectouch_password", '', $time, '/');
+                    cookie('ectouch_user_id', '', $time);
+                    cookie('ectouch_password', '', $time);
                 } else {
                     session(['user_id' => $row['user_id']]);
                     session(['user_name' => $row['user_name']]);
@@ -179,7 +184,7 @@ class Controller extends BaseController
             }
 
             if (isset($this->smarty)) {
-                $this->smarty->assign('ecs_session', $_SESSION);
+                $this->smarty->assign('ecs_session', session()->all());
             }
         }
 

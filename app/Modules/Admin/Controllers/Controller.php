@@ -8,8 +8,11 @@ use App\Libraries\Mysql;
 use App\Libraries\session;
 use App\Libraries\shop;
 use App\Libraries\Template;
-use Yii;
-use yii\web\Controller as BaseController;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 /**
  * Class Controller
@@ -17,6 +20,7 @@ use yii\web\Controller as BaseController;
  */
 class Controller extends BaseController
 {
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     protected $ecs;
     protected $db;
@@ -25,12 +29,12 @@ class Controller extends BaseController
     protected $smarty;
     protected $_CFG;
 
-    public function init()
+    public function __construct(Request $request)
     {
         define('ECS_ADMIN', true);
 
-        $_GET = app('request')->get();
-        $_POST = app('request')->post();
+        $_GET = $request->query() + $request->route()->parameters();
+        $_POST = $request->post();
         $_REQUEST = $_GET + $_POST;
         $_REQUEST['act'] = isset($_REQUEST['act']) ? $_REQUEST['act'] : 'list';
 
@@ -61,7 +65,7 @@ class Controller extends BaseController
             exit;
         }
 
-        load_lang(['common', 'log_action', str_replace('-', '_', $this->id)], 'admin');
+        load_lang(['common', 'log_action', getCurrentName()], 'admin');
 
         /* 创建 Smarty 对象。*/
         $this->smarty = $GLOBALS['smarty'] = new Template();
@@ -80,17 +84,17 @@ class Controller extends BaseController
             $_REQUEST['act'] != 'login' && $_REQUEST['act'] != 'signin' &&
             $_REQUEST['act'] != 'forget_pwd' && $_REQUEST['act'] != 'reset_pwd' && $_REQUEST['act'] != 'check_order') {
             /* session 不存在，检查cookie */
-            if (!empty(cookie('ectouch_cp_admin_id')) && !empty(cookie('ectouch_cp_admin_pass'))) {
+            if (!empty(cookie('ectouch_cp_admin_id')->getValue()) && !empty(cookie('ectouch_cp_admin_pass')->getValue())) {
                 // 找到了cookie, 验证cookie信息
                 $sql = 'SELECT user_id, user_name, password, action_list, last_login ' .
                     ' FROM ' . $this->ecs->table('admin_user') .
-                    " WHERE user_id = '" . intval(cookie('ectouch_cp_admin_id')) . "'";
+                    " WHERE user_id = '" . intval(cookie('ectouch_cp_admin_id')->getValue()) . "'";
                 $row = $this->db->GetRow($sql);
 
                 if (!$row) {
                     // 没有找到这个记录
-                    cookie(cookie('ectouch_cp_admin_id'), '', 1);
-                    cookie(cookie('ectouch_cp_admin_pass'), '', 1);
+                    cookie(cookie('ectouch_cp_admin_id')->getValue(), '', 1);
+                    cookie(cookie('ectouch_cp_admin_pass')->getValue(), '', 1);
 
                     if (!empty($_REQUEST['is_ajax'])) {
                         make_json_error($GLOBALS['_LANG']['priv_error']);
@@ -101,7 +105,7 @@ class Controller extends BaseController
                     exit;
                 } else {
                     // 检查密码是否正确
-                    if (md5($row['password'] . $GLOBALS['_CFG']['hash_code']) == cookie('ectouch_cp_admin_pass')) {
+                    if (md5($row['password'] . $GLOBALS['_CFG']['hash_code']) == cookie('ectouch_cp_admin_pass')->getValue()) {
                         !isset($row['last_time']) && $row['last_time'] = '';
                         set_admin_session($row['user_id'], $row['user_name'], $row['action_list'], $row['last_time']);
 
@@ -110,8 +114,8 @@ class Controller extends BaseController
                             " SET last_login = '" . gmtime() . "', last_ip = '" . real_ip() . "'" .
                             " WHERE user_id = '" . session('admin_id') . "'");
                     } else {
-                        cookie(cookie('ectouch_cp_admin_id'), '', 1);
-                        cookie(cookie('ectouch_cp_admin_pass'), '', 1);
+                        cookie(cookie('ectouch_cp_admin_id')->getValue(), '', 1);
+                        cookie(cookie('ectouch_cp_admin_pass')->getValue(), '', 1);
 
                         if (!empty($_REQUEST['is_ajax'])) {
                             make_json_error($GLOBALS['_LANG']['priv_error']);

@@ -564,8 +564,8 @@ function page_and_size($filter)
 {
     if (isset($_REQUEST['page_size']) && intval($_REQUEST['page_size']) > 0) {
         $filter['page_size'] = intval($_REQUEST['page_size']);
-    } elseif (intval(cookie('ectouch_cp_page_size')) > 0) {
-        $filter['page_size'] = intval(cookie('ectouch_cp_page_size'));
+    } elseif (intval(cookie('ectouch_cp_page_size')->getValue()) > 0) {
+        $filter['page_size'] = intval(cookie('ectouch_cp_page_size')->getValue());
     } else {
         $filter['page_size'] = 15;
     }
@@ -665,10 +665,10 @@ function get_filter($param_str = '')
     if ($param_str) {
         $filterfile .= $param_str;
     }
-    if (isset($_GET['uselastfilter']) && cookie('ectouch_cp_lastfilterfile') == sprintf('%X', crc32($filterfile))) {
+    if (isset($_GET['uselastfilter']) && cookie('ectouch_cp_lastfilterfile')->getValue() == sprintf('%X', crc32($filterfile))) {
         return array(
-            'filter' => unserialize(urldecode(cookie('ectouch_cp_lastfilter'))),
-            'sql' => base64_decode(cookie('ectouch_cp_lastfiltersql'))
+            'filter' => unserialize(urldecode(cookie('ectouch_cp_lastfilter')->getValue())),
+            'sql' => base64_decode(cookie('ectouch_cp_lastfiltersql')->getValue())
         );
     } else {
         return false;

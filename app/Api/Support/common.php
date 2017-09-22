@@ -246,7 +246,7 @@ if (!function_exists('unserialize_config')) {
 if (!function_exists('is_dev')) {
     function is_dev()
     {
-        if (app('request')->cookie('78b5od367n99we5w') == '882q20qxt3089s0s') {
+        if (cookie('78b5od367n99we5w')->getValue() == '882q20qxt3089s0s') {
             return true;
         }
 

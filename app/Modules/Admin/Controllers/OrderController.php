@@ -136,8 +136,8 @@ class OrderController extends Controller
             }
 
             /* 取得上一个、下一个订单号 */
-            if (!empty(cookie('ectouch_cp_lastfilter'))) {
-                $filter = unserialize(urldecode(cookie('ectouch_cp_lastfilter')));
+            if (!empty(cookie('ectouch_cp_lastfilter')->getValue())) {
+                $filter = unserialize(urldecode(cookie('ectouch_cp_lastfilter')->getValue()));
                 if (!empty($filter['composite_status'])) {
                     $where = '';
                     //综合状态
@@ -4275,8 +4275,8 @@ class OrderController extends Controller
 
             if (isset($_REQUEST['page_size']) && intval($_REQUEST['page_size']) > 0) {
                 $filter['page_size'] = intval($_REQUEST['page_size']);
-            } elseif (intval(cookie('ectouch_cp_page_size')) > 0) {
-                $filter['page_size'] = intval(cookie('ectouch_cp_page_size'));
+            } elseif (intval(cookie('ectouch_cp_page_size')->getValue()) > 0) {
+                $filter['page_size'] = intval(cookie('ectouch_cp_page_size')->getValue());
             } else {
                 $filter['page_size'] = 15;
             }
@@ -4897,8 +4897,8 @@ class OrderController extends Controller
 
             if (isset($_REQUEST['page_size']) && intval($_REQUEST['page_size']) > 0) {
                 $filter['page_size'] = intval($_REQUEST['page_size']);
-            } elseif (intval(cookie('ectouch_cp_page_size')) > 0) {
-                $filter['page_size'] = intval(cookie('ectouch_cp_page_size'));
+            } elseif (intval(cookie('ectouch_cp_page_size')->getValue()) > 0) {
+                $filter['page_size'] = intval(cookie('ectouch_cp_page_size')->getValue());
             } else {
                 $filter['page_size'] = 15;
             }
@@ -5004,8 +5004,8 @@ class OrderController extends Controller
 
             if (isset($_REQUEST['page_size']) && intval($_REQUEST['page_size']) > 0) {
                 $filter['page_size'] = intval($_REQUEST['page_size']);
-            } elseif (intval(cookie('ectouch_cp_page_size')) > 0) {
-                $filter['page_size'] = intval(cookie('ectouch_cp_page_size'));
+            } elseif (intval(cookie('ectouch_cp_page_size')->getValue()) > 0) {
+                $filter['page_size'] = intval(cookie('ectouch_cp_page_size')->getValue());
             } else {
                 $filter['page_size'] = 15;
             }

@@ -889,8 +889,8 @@ function visit_stats()
     }
     $time = gmtime();
     /* 检查客户端是否存在访问统计的cookie */
-    $visit_times = !empty(cookie('ectouch_visit_times')) ? intval(cookie('ectouch_visit_times')) + 1 : 1;
-    cookie('ectouch_visit_times', $visit_times, 1440 * 365, '/');
+    $visit_times = !empty(cookie('ectouch_visit_times')->getValue()) ? intval(cookie('ectouch_visit_times')->getValue()) + 1 : 1;
+    cookie('ectouch_visit_times', $visit_times, 1440 * 365, '/')->getValue();
 
     $browser = get_user_browser();
     $os = get_os();
@@ -1448,8 +1448,8 @@ function set_affiliate()
  **/
 function get_affiliate()
 {
-    if (!empty(cookie('affiliate_uid'))) {
-        $uid = intval(cookie('affiliate_uid'));
+    if (!empty(cookie('affiliate_uid')->getValue())) {
+        $uid = intval(cookie('affiliate_uid')->getValue());
         if ($GLOBALS['db']->getOne('SELECT user_id FROM ' . $GLOBALS['ecs']->table('users') . "WHERE user_id = '$uid'")) {
             return $uid;
         } else {
