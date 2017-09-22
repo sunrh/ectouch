@@ -37,9 +37,11 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapApiRoutes();
 
+        $this->mapDashboardRoutes();
+
         $this->mapWebRoutes();
 
-        $this->mapDashboardRoutes();
+        $this->mapInstallerRoutes();
     }
 
     /**
@@ -81,5 +83,21 @@ class RouteServiceProvider extends ServiceProvider
         Route::prefix('api')
              ->middleware('api')
              ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define the "installer" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapInstallerRoutes()
+    {
+        $routes = app_path('Modules/Installer/routes.php');
+        if (is_file($routes)) {
+            Route::middleware('web')
+                ->group($routes);
+        }
     }
 }

@@ -6,23 +6,10 @@ use App\Libraries\Json;
 
 /**
  * Class IndexController
- * @package app\http\controller
+ * @package App\Http\Controller
  */
 class IndexController extends Controller
 {
-
-    /**
-     * @inheritdoc
-     */
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-        ];
-    }
-
     /**
      * Displays homepage.
      *
