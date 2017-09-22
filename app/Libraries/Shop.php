@@ -2,8 +2,6 @@
 
 namespace App\Libraries;
 
-use Yii;
-
 /**
  * 基础类
  * Class Shop
@@ -19,9 +17,8 @@ class Shop
      */
     public function __construct()
     {
-        $db_dsn = Yii::$app->db->dsn;
-        $this->db_name = substr($db_dsn, strripos($db_dsn, '=') + 1);
-        $this->prefix = Yii::$app->db->tablePrefix;
+        $this->db_name = config('database.connections.mysql.database');
+        $this->prefix = config('database.connections.mysql.prefix');
     }
 
     /**
