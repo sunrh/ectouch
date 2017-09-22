@@ -84,17 +84,17 @@ class Controller extends BaseController
             $_REQUEST['act'] != 'login' && $_REQUEST['act'] != 'signin' &&
             $_REQUEST['act'] != 'forget_pwd' && $_REQUEST['act'] != 'reset_pwd' && $_REQUEST['act'] != 'check_order') {
             /* session 不存在，检查cookie */
-            if (!empty(cookie('ectouch_cp_admin_id')->getValue()) && !empty(cookie('ectouch_cp_admin_pass')->getValue())) {
+            if (!empty(request()->cookie('ectouch_cp_admin_id')) && !empty(request()->cookie('ectouch_cp_admin_pass'))) {
                 // 找到了cookie, 验证cookie信息
                 $sql = 'SELECT user_id, user_name, password, action_list, last_login ' .
                     ' FROM ' . $this->ecs->table('admin_user') .
-                    " WHERE user_id = '" . intval(cookie('ectouch_cp_admin_id')->getValue()) . "'";
+                    " WHERE user_id = '" . intval(request()->cookie('ectouch_cp_admin_id')) . "'";
                 $row = $this->db->GetRow($sql);
 
                 if (!$row) {
                     // 没有找到这个记录
-                    cookie(cookie('ectouch_cp_admin_id')->getValue(), '', 1);
-                    cookie(cookie('ectouch_cp_admin_pass')->getValue(), '', 1);
+                    cookie()->queue('ectouch_cp_admin_id', '', 1);
+                    cookie()->queue('ectouch_cp_admin_pass', '', 1);
 
                     if (!empty($_REQUEST['is_ajax'])) {
                         make_json_error($GLOBALS['_LANG']['priv_error']);
@@ -105,7 +105,7 @@ class Controller extends BaseController
                     exit;
                 } else {
                     // 检查密码是否正确
-                    if (md5($row['password'] . $GLOBALS['_CFG']['hash_code']) == cookie('ectouch_cp_admin_pass')->getValue()) {
+                    if (md5($row['password'] . $GLOBALS['_CFG']['hash_code']) == request()->cookie('ectouch_cp_admin_pass')) {
                         !isset($row['last_time']) && $row['last_time'] = '';
                         set_admin_session($row['user_id'], $row['user_name'], $row['action_list'], $row['last_time']);
 
@@ -114,8 +114,8 @@ class Controller extends BaseController
                             " SET last_login = '" . gmtime() . "', last_ip = '" . real_ip() . "'" .
                             " WHERE user_id = '" . session('admin_id') . "'");
                     } else {
-                        cookie(cookie('ectouch_cp_admin_id')->getValue(), '', 1);
-                        cookie(cookie('ectouch_cp_admin_pass')->getValue(), '', 1);
+                        cookie()->queue('ectouch_cp_admin_id', '', 1);
+                        cookie()->queue('ectouch_cp_admin_pass', '', 1);
 
                         if (!empty($_REQUEST['is_ajax'])) {
                             make_json_error($GLOBALS['_LANG']['priv_error']);

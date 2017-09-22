@@ -889,8 +889,8 @@ function visit_stats()
     }
     $time = gmtime();
     /* 检查客户端是否存在访问统计的cookie */
-    $visit_times = !empty(cookie('ectouch_visit_times')->getValue()) ? intval(cookie('ectouch_visit_times')->getValue()) + 1 : 1;
-    cookie('ectouch_visit_times', $visit_times, 1440 * 365, '/')->getValue();
+    $visit_times = !empty(request()->cookie('ectouch_visit_times')) ? intval(request()->cookie('ectouch_visit_times')) + 1 : 1;
+    cookie()->queue('ectouch_visit_times', $visit_times, 1440 * 365, '/');
 
     $browser = get_user_browser();
     $os = get_os();
@@ -1430,9 +1430,9 @@ function set_affiliate()
             } else {
                 $c = 1;
             }
-            cookie('affiliate_uid', intval($_GET['u']), 60 * $config['config']['expire'] * $c);
+            cookie()->queue('affiliate_uid', intval($_GET['u']), 60 * $config['config']['expire'] * $c);
         } else {
-            cookie('affiliate_uid', intval($_GET['u']), 60 * 24); // 过期时间为 1 天
+            cookie()->queue('affiliate_uid', intval($_GET['u']), 60 * 24); // 过期时间为 1 天
         }
     }
 }
@@ -1448,12 +1448,12 @@ function set_affiliate()
  **/
 function get_affiliate()
 {
-    if (!empty(cookie('affiliate_uid')->getValue())) {
-        $uid = intval(cookie('affiliate_uid')->getValue());
+    if (!empty(request()->cookie('affiliate_uid'))) {
+        $uid = intval(request()->cookie('affiliate_uid'));
         if ($GLOBALS['db']->getOne('SELECT user_id FROM ' . $GLOBALS['ecs']->table('users') . "WHERE user_id = '$uid'")) {
             return $uid;
         } else {
-            cookie('affiliate_uid', '', 1);
+            cookie()->queue('affiliate_uid', '', 1);
         }
     }
 

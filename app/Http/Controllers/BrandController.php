@@ -55,9 +55,9 @@ class BrandController extends Controller
 
         $sort = (isset($_REQUEST['sort']) && in_array(trim(strtolower($_REQUEST['sort'])), array('goods_id', 'shop_price', 'last_update'))) ? trim($_REQUEST['sort']) : $default_sort_order_type;
         $order = (isset($_REQUEST['order']) && in_array(trim(strtoupper($_REQUEST['order'])), array('ASC', 'DESC'))) ? trim($_REQUEST['order']) : $default_sort_order_method;
-        $this->display = (isset($_REQUEST['display']) && in_array(trim(strtolower($_REQUEST['display'])), array('list', 'grid', 'text'))) ? trim($_REQUEST['display']) : (cookie('ectouch_display')->getValue() ? cookie('ectouch_display')->getValue() : $default_display_type);
+        $this->display = (isset($_REQUEST['display']) && in_array(trim(strtolower($_REQUEST['display'])), array('list', 'grid', 'text'))) ? trim($_REQUEST['display']) : (request()->cookie('ectouch_display') ? request()->cookie('ectouch_display') : $default_display_type);
         $this->display = in_array($this->display, array('list', 'grid', 'text')) ? $this->display : 'text';
-        cookie('ectouch_display', $this->display, 1440 * 7);
+        cookie()->queue('ectouch_display', $this->display, 1440 * 7);
 
         /* 页面的缓存ID */
         $cache_id = sprintf('%X', crc32($brand_id . '-' . $this->display . '-' . $sort . '-' . $order . '-' . $page . '-' . $size . '-' . session('user_rank') . '-' . $GLOBALS['_CFG']['lang'] . '-' . $cate));

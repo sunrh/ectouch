@@ -2496,7 +2496,7 @@ class UserController extends Controller
          * 清除商品浏览历史
          */
         if ($action == 'clear_history') {
-            cookie('ectouch_history', '', 1);
+            cookie()->queue('ectouch_history', '', 1);
         }
     }
 }

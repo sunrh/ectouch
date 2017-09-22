@@ -30,8 +30,8 @@ class RoleController extends Controller
         /*------------------------------------------------------ */
         if ($_REQUEST['act'] == 'logout') {
             /* 清除cookie */
-            cookie('ECSCP[admin_id]', '', 1);
-            cookie('ECSCP[admin_pass]', '', 1);
+            cookie()->queue('ECSCP[admin_id]', '', 1);
+            cookie()->queue('ECSCP[admin_pass]', '', 1);
 
             session()->flush();
 

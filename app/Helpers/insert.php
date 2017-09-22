@@ -9,8 +9,8 @@
 function insert_history()
 {
     $str = '';
-    if (!empty(cookie('ectouch_history')->getValue())) {
-        $where = db_create_in(cookie('ectouch_history')->getValue(), 'goods_id');
+    if (!empty(request()->cookie('ectouch_history'))) {
+        $where = db_create_in(request()->cookie('ectouch_history'), 'goods_id');
         $sql = 'SELECT goods_id, goods_name, goods_thumb, shop_price FROM ' . $GLOBALS['ecs']->table('goods') .
             " WHERE $where AND is_on_sale = 1 AND is_alone_sale = 1 AND is_delete = 0";
         $query = $GLOBALS['db']->query($sql);
@@ -156,8 +156,8 @@ function insert_member_info()
     if (session('user_id') > 0) {
         $GLOBALS['smarty']->assign('user_info', get_user_info());
     } else {
-        if (!empty(cookie('ectouch_username')->getValue())) {
-            $GLOBALS['smarty']->assign('ecs_username', stripslashes(cookie('ectouch_username')->getValue()));
+        if (!empty(request()->cookie('ectouch_username'))) {
+            $GLOBALS['smarty']->assign('ecs_username', stripslashes(request()->cookie('ectouch_username')));
         }
         $captcha = intval($GLOBALS['_CFG']['captcha']);
         if (($captcha & CAPTCHA_LOGIN) && (!($captcha & CAPTCHA_LOGIN_FAIL) || (($captcha & CAPTCHA_LOGIN_FAIL) && session('login_fail') > 2)) && gd_version() > 0) {

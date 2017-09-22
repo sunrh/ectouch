@@ -26,8 +26,8 @@ class PrivilegeController extends Controller
          */
         if ($_REQUEST['act'] == 'logout') {
             /* 清除cookie */
-            cookie('ECSCP[admin_id]', '', 1);
-            cookie('ECSCP[admin_pass]', '', 1);
+            cookie()->queue('ECSCP[admin_id]', '', 1);
+            cookie()->queue('ECSCP[admin_pass]', '', 1);
 
             session()->flush();
 
@@ -110,8 +110,8 @@ class PrivilegeController extends Controller
 
                 if (isset($_POST['remember'])) {
                     $time = 60 * 24 * 365;
-                    cookie('ECSCP[admin_id]', $row['user_id'], $time);
-                    cookie('ECSCP[admin_pass]', md5($row['password'] . $GLOBALS['_CFG']['hash_code']), $time);
+                    cookie()->queue('ECSCP[admin_id]', $row['user_id'], $time);
+                    cookie()->queue('ECSCP[admin_pass]', md5($row['password'] . $GLOBALS['_CFG']['hash_code']), $time);
                 }
 
                 // 清除购物车中过期的数据

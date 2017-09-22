@@ -163,19 +163,19 @@ class Controller extends BaseController
             /**
              * session 不存在，检查cookie
              */
-            if (!empty(cookie('ectouch_user_id')->getValue()) && !empty(cookie('ectouch_password')->getValue())) {
+            if (!empty(request()->cookie('ectouch_user_id')) && !empty(request()->cookie('ectouch_password'))) {
                 // 找到了cookie, 验证cookie信息
                 $sql = 'SELECT user_id, user_name, password ' .
                     ' FROM ' . $this->ecs->table('users') .
-                    " WHERE user_id = '" . intval(cookie('ectouch_user_id')->getValue()) . "' AND password = '" . cookie('ectouch_password')->getValue() . "'";
+                    " WHERE user_id = '" . intval(request()->cookie('ectouch_user_id')) . "' AND password = '" . request()->cookie('ectouch_password') . "'";
 
                 $row = $this->db->GetRow($sql);
 
                 if (!$row) {
                     // 没有找到这个记录
                     $time = 0;
-                    cookie('ectouch_user_id', '', $time);
-                    cookie('ectouch_password', '', $time);
+                    cookie()->queue('ectouch_user_id', '', $time);
+                    cookie()->queue('ectouch_password', '', $time);
                 } else {
                     session(['user_id' => $row['user_id']]);
                     session(['user_name' => $row['user_name']]);

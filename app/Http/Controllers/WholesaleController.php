@@ -52,9 +52,9 @@ class WholesaleController extends Controller
 
             if ($count > 0) {
                 $default_display_type = $GLOBALS['_CFG']['show_order_type'] == '0' ? 'list' : 'text';
-                $display = (isset($_REQUEST['display']) && in_array(trim(strtolower($_REQUEST['display'])), array('list', 'text'))) ? trim($_REQUEST['display']) : (cookie('ectouch_display')->getValue() ? cookie('ectouch_display')->getValue() : $default_display_type);
+                $display = (isset($_REQUEST['display']) && in_array(trim(strtolower($_REQUEST['display'])), array('list', 'text'))) ? trim($_REQUEST['display']) : (request()->cookie('ectouch_display') ? request()->cookie('ectouch_display') : $default_display_type);
                 $display = in_array($display, array('list', 'text')) ? $display : 'text';
-                cookie('ectouch_display', $display, 1440 * 7);
+                cookie()->queue('ectouch_display', $display, 1440 * 7);
 
                 /* 取得每页记录数 */
                 $size = isset($GLOBALS['_CFG']['page_size']) && intval($GLOBALS['_CFG']['page_size']) > 0 ? intval($GLOBALS['_CFG']['page_size']) : 10;

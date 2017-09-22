@@ -434,8 +434,8 @@ class SuppliersController extends Controller
 
             if (isset($_REQUEST['page_size']) && intval($_REQUEST['page_size']) > 0) {
                 $filter['page_size'] = intval($_REQUEST['page_size']);
-            } elseif (intval(cookie('ectouch_cp_page_size')->getValue()) > 0) {
-                $filter['page_size'] = intval(cookie('ectouch_cp_page_size')->getValue());
+            } elseif (intval(request()->cookie('ectouch_cp_page_size')) > 0) {
+                $filter['page_size'] = intval(request()->cookie('ectouch_cp_page_size'));
             } else {
                 $filter['page_size'] = 15;
             }

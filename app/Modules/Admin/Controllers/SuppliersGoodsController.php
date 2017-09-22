@@ -106,8 +106,8 @@ class SuppliersGoodsController extends Controller
             if ($is_add) {
                 /* 默认值 */
                 $last_choose = array(0, 0);
-                if (!empty(cookie('ectouch_cp_last_choose')->getValue())) {
-                    $last_choose = explode('|', cookie('ectouch_cp_last_choose')->getValue());
+                if (!empty(request()->cookie('ectouch_cp_last_choose'))) {
+                    $last_choose = explode('|', request()->cookie('ectouch_cp_last_choose'));
                 }
                 $goods = array(
                     'goods_id' => 0,
@@ -893,7 +893,7 @@ class SuppliersGoodsController extends Controller
             }
 
             /* 记录上一次选择的分类和品牌 */
-            cookie('ECSCP[last_choose]', $catgory_id . '|' . $brand_id, 1440);
+            cookie()->queue('ECSCP[last_choose]', $catgory_id . '|' . $brand_id, 1440);
             /* 清空缓存 */
             clear_cache_files();
 

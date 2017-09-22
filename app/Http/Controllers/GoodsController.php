@@ -209,8 +209,8 @@ class GoodsController extends Controller
         }
 
         /* 记录浏览历史 */
-        if (!empty(cookie('ectouch_history')->getValue())) {
-            $history = explode(',', cookie('ectouch_history')->getValue());
+        if (!empty(request()->cookie('ectouch_history'))) {
+            $history = explode(',', request()->cookie('ectouch_history'));
 
             array_unshift($history, $goods_id);
             $history = array_unique($history);
@@ -219,9 +219,9 @@ class GoodsController extends Controller
                 array_pop($history);
             }
 
-            cookie('ectouch_history', implode(',', $history), 60 * 24 * 30);
+            cookie()->queue('ectouch_history', implode(',', $history), 60 * 24 * 30);
         } else {
-            cookie('ectouch_history', $goods_id, 60 * 24 * 30);
+            cookie()->queue('ectouch_history', $goods_id, 60 * 24 * 30);
         }
 
 
