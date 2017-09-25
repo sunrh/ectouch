@@ -4,7 +4,7 @@ namespace app\http\controllers;
 
 use app\libraries\Captcha;
 use app\libraries\Json;
-use app\libraries\sms;
+use app\libraries\Sms;
 
 /**
  * 购物流程

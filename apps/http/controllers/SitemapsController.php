@@ -2,7 +2,7 @@
 
 namespace app\http\controllers;
 
-use app\libraries\sitemap;
+use app\libraries\Sitemap;
 
 /**
  * 网站地图

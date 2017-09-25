@@ -2,7 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
-use app\libraries\sqlDump;
+use app\libraries\SqlDump;
 
 /**
  * Class DatabaseController

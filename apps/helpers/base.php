@@ -1,6 +1,6 @@
 <?php
 
-use app\libraries\smtp;
+use app\libraries\Smtp;
 use app\libraries\Iconv;
 use app\libraries\Image;
 

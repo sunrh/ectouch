@@ -2,7 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
-use app\libraries\sms;
+use app\libraries\Sms;
 
 /**
  * Class SmsController

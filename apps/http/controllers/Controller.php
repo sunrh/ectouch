@@ -4,8 +4,8 @@ namespace app\http\controllers;
 
 use app\libraries\Error;
 use app\libraries\Mysql;
-use app\libraries\session;
-use app\libraries\shop;
+use app\libraries\Session;
+use app\libraries\Shop;
 use app\libraries\Template;
 use Yii;
 use yii\web\Controller as BaseController;
