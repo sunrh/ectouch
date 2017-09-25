@@ -31,7 +31,6 @@ return [
 
     'auction.php' => 'auction/index',
 
-
     'brand-<id:\d+>-c<cat:\d+>-<page:\d+>-<sort:.+>-<order:[a-zA-Z]+>.html' => 'brand/index',
 
     'brand-<id:\d+>-c<cat:\d+>-<page:\d+><s:.*>.html' => 'brand/index',
