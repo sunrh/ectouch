@@ -1,9 +1,6 @@
 <?php
 
 return [
-    // 应用运行模式
-    'RUN_MODE' => 0,
-
     // 商城URL
     'SHOP_URL' => 'http://localhost/',
 

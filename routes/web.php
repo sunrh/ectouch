@@ -1,180 +1,150 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+return [
+    'activity.php' => 'activity/index',
 
-Route::any('/', 'IndexController@actionIndex');
+    'affiche.php' => 'affiche/index',
 
-Route::any('activity.php', 'ActivityController@actionIndex');
+    'affiliate.php' => 'affiliate/index',
 
-Route::any('affiche.php', 'AfficheController@actionIndex');
+    'api.php' => 'api/index',
 
-Route::any('affiliate.php', 'AffiliateController@actionIndex');
+    'article-<id:\d+><s:.*>.html' => 'article/index',
 
-Route::any('api.php', 'ApiController@actionIndex');
+    'article.php' => 'article/index',
 
-Route::any('article-{id}{s?}.html', 'ArticleController@actionIndex')
-    ->where(['id' => '[0-9]+', 's' => '.*']);
+    'article_cat-<id:\d+>-<page:\d+>-<sort:.+>-<order:[a-zA-Z]+><s:.*>.html' => 'article-cat/index',
 
-Route::any('article.php', 'ArticleController@actionIndex');
+    'article_cat-<id:\d+>-<page:\d+>-<keywords:.+><s:.*>.html' => 'article-cat/index',
 
-Route::any('article_cat-{id}-{page}-{sort}-{order}{s?}.html', 'ArticleCatController@actionIndex')
-    ->where(['id' => '[0-9]+', 'page' => '[0-9]+', 'sort' => '.+', 'order' => '[a-zA-Z]+', 's' => '.*']);
+    'article_cat-<id:\d+>-<page:\d+><s:.*>.html' => 'article-cat/index',
 
-Route::any('article_cat-{id}-{page}-{keywords}{s?}.html', 'ArticleCatController@actionIndex')
-    ->where(['id' => '[0-9]+', 'page' => '[0-9]+', 'keywords' => '.+', 's' => '.*']);
+    'article_cat-<id:\d+><s:.*>.html' => 'article-cat/index',
 
-Route::any('article_cat-{id}-{page}{s?}.html', 'ArticleCatController@actionIndex')
-    ->where(['id' => '[0-9]+', 'page' => '[0-9]+', 's' => '.*']);
+    'article_cat.php' => 'article-cat/index',
 
-Route::any('article_cat-{id}{s?}.html', 'ArticleCatController@actionIndex')
-    ->where(['id' => '[0-9]+', 's' => '.*']);
+    [
+        'pattern' => 'auction-<id:\d+>.html',
+        'route' => 'auction/index',
+        'defaults' => ['act' => 'view'],
+    ],
 
-Route::any('article_cat.php', 'ArticleCatController@actionIndex');
+    'auction.php' => 'auction/index',
 
-Route::any('auction-{id}.html', 'auctionController@actionIndex')
-    // ->bind('act', 'view')
-    ->where(['id' => '[0-9]+']);
 
-Route::any('auction.php', 'AuctionController@actionIndex');
+    'brand-<id:\d+>-c<cat:\d+>-<page:\d+>-<sort:.+>-<order:[a-zA-Z]+>.html' => 'brand/index',
 
-Route::any('brand-{id}-c{cat}-{page}-{sort}-{order}.html', 'BrandController@actionIndex')
-    ->where(['id' => '[0-9]+', 'cat' => '[0-9]+', 'page' => '[0-9]+', 'sort' => '.+', 'order' => '[a-zA-Z]+']);
+    'brand-<id:\d+>-c<cat:\d+>-<page:\d+><s:.*>.html' => 'brand/index',
 
-Route::any('brand-{id}-c{cat}-{page}{s?}.html', 'BrandController@actionIndex')
-    ->where(['id' => '[0-9]+', 'cat' => '[0-9]+', 'page' => '[0-9]+', 's' => '.*']);
+    'brand-<id:\d+>-c<cat:\d+><s:.*>.html' => 'brand/index',
 
-Route::any('brand-{id}-c{cat}{s?}.html', 'BrandController@actionIndex')
-    ->where(['id' => '[0-9]+', 'cat' => '[0-9]+', 's' => '.*']);
+    'brand-<id:\d+><s:.*>.html' => 'brand/index',
 
-Route::any('brand-{id}{s?}.html', 'BrandController@actionIndex')
-    ->where(['id' => '[0-9]+', 's' => '.*']);
+    'brand.php' => 'brand/index',
 
-Route::any('brand.php', 'BrandController@actionIndex');
+    'captcha.php' => 'captcha/index',
 
-Route::any('captcha.php', 'CaptchaController@actionIndex');
+    'catalog.php' => 'catalog/index',
 
-Route::any('catalog.php', 'CatalogController@actionIndex');
+    'category-<id:\d+>-b<brand:\d+>-min<price_min:\d+>-max<price_max:\d+>-attr<filter_attr:[^-]*>-<page:\d+>-<sort:.+>-<order:[a-zA-Z]+><s:.*>.html' => 'category/index',
 
-Route::any('category-{id}-b{brand}-min{price_min}-max{price_max}-attr{filter_attr}-{page}-{sort}-{order}{s?}.html', 'CategoryController@actionIndex')
-    ->where(['id' => '[0-9]+', 'brand' => '[0-9]+', 'price_min' => '[0-9]+', 'price_max' => '[0-9]+', 'filter_attr' => '[^-]*', 'page' => '[0-9]+', 'sort' => '.+', 'order' => '[a-zA-Z]+', 's' => '.*']);
+    'category-<id:\d+>-b<brand:\d+>-min<price_min:\d+>-max<price_max:\d+>-attr<filter_attr:[^-]*><s:.*>.html' => 'category/index',
 
-Route::any('category-{id}-b{brand}-min{price_min}-max{price_max}-attr{filter_attr}{s?}.html', 'CategoryController@actionIndex')
-    ->where(['id' => '[0-9]+', 'brand' => '[0-9]+', 'price_min' => '[0-9]+', 'price_max' => '[0-9]+', 'filter_attr' => '[^-]*', 's' => '.*']);
+    'category-<id:\d+>-b<brand:\d+>-<page:\d+>-<sort:.+>-<order:[a-zA-Z]+><s:.*>.html' => 'category/index',
 
-Route::any('category-{id}-b{brand}-{page}-{sort}-{order}{s?}.html', 'CategoryController@actionIndex')
-    ->where(['id' => '[0-9]+', 'brand' => '[0-9]+', 'page' => '[0-9]+', 'sort' => '.+', 'order' => '[a-zA-Z]+', 's' => '.*']);
+    'category-<id:\d+>-b<brand:\d+>-<page:\d+><s:.*>.html' => 'category/index',
 
-Route::any('category-{id}-b{brand}-{page}{s?}.html', 'CategoryController@actionIndex')
-    ->where(['id' => '[0-9]+', 'brand' => '[0-9]+', 'page' => '[0-9]+', 's' => '.*']);
+    'category-<id:\d+>-b<brand:\d+><s:.*>.html' => 'category/index',
 
-Route::any('category-{id}-b{brand}{s?}.html', 'CategoryController@actionIndex')
-    ->where(['id' => '[0-9]+', 'brand' => '[0-9]+', 's' => '.*']);
+    'category-<id:\d+><s:.*>.html' => 'category/index',
 
-Route::any('category-{id}{s?}.html', 'CategoryController@actionIndex')
-    ->where(['id' => '[0-9]+', 's' => '.*']);
+    'category.php' => 'category/index',
 
-Route::any('category.php', 'CategoryController@actionIndex');
+    'certi.php' => 'certi/index',
 
-Route::any('certi.php', 'CertiController@actionIndex');
+    'comment.php' => 'comment/index',
 
-Route::any('comment.php', 'CommentController@actionIndex');
+    'compare.php' => 'compare/index',
 
-Route::any('compare.php', 'CompareController@actionIndex');
+    'cycle_image.php' => 'cycle-image/index',
 
-Route::any('cycle_image.php', 'CycleImageController@actionIndex');
+    [
+        'pattern' => 'exchange-id<id:\d+><s:.*>.html',
+        'route' => 'exchange/index',
+        'defaults' => ['act' => 'view'],
+    ],
 
-Route::any('exchange-id{id}{s?}.html', 'ExchangeController@actionIndex')
-    // ->bind('act', 'view')
-    ->where(['id' => '[0-9]+', 's' => '.*']);
+    'exchange-<cat_id:\d+>-min<integral_min:\d+>-max<integral_max:\d+>-<page:\d+>-<sort:.+>-<order:[a-zA-Z]+><s:.*>.html' => 'exchange/index',
 
-Route::any('exchange-{cat_id}-min{integral_min}-max{integral_max}-{page}-{sort}-{order}{s?}.html', 'ExchangeController@actionIndex')
-    ->where(['cat_id' => '[0-9]+', 'integral_min' => '[0-9]+', 'integral_max' => '[0-9]+', 'page' => '[0-9]+', 'sort' => '.+', 'order' => '[a-zA-Z]+', 's' => '.*']);
+    'exchange-<cat_id:\d+>-<page:\d+>-<sort:.+>-<order:[a-zA-Z]+><s:.*>.html' => 'exchange/index',
 
-Route::any('exchange-{cat_id}-{page}-{sort}-{order}{s?}.html', 'ExchangeController@actionIndex')
-    ->where(['cat_id' => '[0-9]+', 'page' => '[0-9]+', 'sort' => '.+', 'order' => '[a-zA-Z]+', 's' => '.*']);
+    'exchange-<cat_id:\d+>-<page:\d+><s:.*>.html' => 'exchange/index',
 
-Route::any('exchange-{cat_id}-{page}{s?}.html', 'ExchangeController@actionIndex')
-    ->where(['id' => '[0-9]+', 'page' => '[0-9]+', 's' => '.*']);
+    'exchange-<cat_id:\d+><s:.*>.html' => 'exchange/index',
 
-Route::any('exchange-{cat_id}{s?}.html', 'ExchangeController@actionIndex')
-    ->where(['id' => '[0-9]+', 's' => '.*']);
+    'exchange.php' => 'exchange/index',
 
-Route::any('exchange.php', 'ExchangeController@actionIndex');
+    'feed-c<cat:\d+>.xml' => 'feed/index',
 
-Route::any('feed-c{cat}.xml', 'FeedController@actionIndex')
-    ->where(['cat' => '[0-9]+']);
+    'feed-b<brand:\d+>.xml' => 'feed/index',
 
-Route::any('feed-b{brand}.xml', 'FeedController@actionIndex')
-    ->where(['brand' => '[0-9]+']);
+    'feed-type<type:[^-]+>.xml' => 'feed/index',
 
-Route::any('feed-type{type}.xml', 'FeedController@actionIndex')
-    ->where(['type' => '[^-]+']);
+    'feed.<xml|php>' => 'feed/index',
 
-Route::any('feed.{ext}', 'FeedController@actionIndex')
-    ->where(['ext' => 'xml|php']);
+    'flow.php' => 'flow/index',
 
-Route::any('flow.php', 'FlowController@actionIndex');
+    'gallery.php' => 'gallery/index',
 
-Route::any('gallery.php', 'GalleryController@actionIndex');
+    'goods-<id:\d+><s:.*>.html' => 'goods/index',
 
-Route::any('goods-{id}{s?}.html', 'GoodsController@actionIndex')
-    ->where(['id' => '[0-9]+', 's' => '.*']);
+    'goods.php' => 'goods/index',
 
-Route::any('goods.php', 'GoodsController@actionIndex');
+    'goods_script.php' => 'goods-script/index',
 
-Route::any('goods_script.php', 'GoodsScriptController@actionIndex');
+    [
+        'pattern' => 'group_buy-<id:\d+>.html',
+        'route' => 'group-buy/index',
+        'defaults' => ['act' => 'view'],
+    ],
 
-Route::any('group_buy-{id}.html', 'GroupBuyController@actionIndex')
-    // ->bind('act', 'view')
-    ->where(['id' => '[0-9]+']);
+    'group_buy.php' => 'group-buy/index',
 
-Route::any('group_buy.php', 'GroupBuyController@actionIndex');
+    'message.php' => 'message/index',
 
-Route::any('message.php', 'MessageController@actionIndex');
+    'myship.php' => 'myship/index',
 
-Route::any('myship.php', 'MyshipController@actionIndex');
+    'package.php' => 'package/index',
 
-Route::any('package.php', 'PackageController@actionIndex');
+    'pick_out.php' => 'pick-out/index',
 
-Route::any('pick_out.php', 'PickOutController@actionIndex');
+    'pm.php' => 'pm/index',
 
-Route::any('pm.php', 'PmController@actionIndex');
+    'quotation.php' => 'quotation/index',
 
-Route::any('quotation.php', 'QuotationController@actionIndex');
+    'receive.php' => 'receive/index',
 
-Route::any('receive.php', 'ReceiveController@actionIndex');
+    'region.php' => 'region/index',
 
-Route::any('region.php', 'RegionController@actionIndex');
+    'respond.php' => 'respond/index',
 
-Route::any('respond.php', 'RespondController@actionIndex');
+    'tag-<keywords:.*>.html' => 'search/index',
 
-Route::any('tag-{keywords}.html', 'SearchController@actionIndex')
-    ->where(['keywords' => '.*']);
+    'search.php' => 'search/index',
 
-Route::any('search.php', 'SearchController@actionIndex');
+    'sitemaps.php' => 'sitemaps/index',
 
-Route::any('sitemaps.php', 'SitemapsController@actionIndex');
+    'snatch-<id:\d+>.html' => 'snatch/index',
 
-Route::any('snatch-{id}.html', 'SnatchController@actionIndex')
-    ->where(['id' => '[0-9]+']);
+    'snatch.php' => 'snatch/index',
 
-Route::any('snatch.php', 'SnatchController@actionIndex');
+    'tag_cloud.php' => 'tag-cloud/index',
 
-Route::any('tag_cloud.php', 'TagCloudController@actionIndex');
+    'topic.php' => 'topic/index',
 
-Route::any('topic.php', 'TopicController@actionIndex');
+    'user.php' => 'user/index',
 
-Route::any('user.php', 'UserController@actionIndex');
+    'vote.php' => 'vote/index',
 
-Route::any('vote.php', 'VoteController@actionIndex');
-
-Route::any('wholesale.php', 'WholesaleController@actionIndex');
+    'wholesale.php' => 'wholesale/index',
+];

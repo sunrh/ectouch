@@ -1,45 +1,66 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Create The Application
-|--------------------------------------------------------------------------
-|
-| The first thing we will do is create a new Laravel application instance
-| which serves as the "glue" for all the components of Laravel, and is
-| the IoC container for the system binding all of the various parts.
-|
-*/
-
-$app = new Illuminate\Foundation\Application(
-    realpath(__DIR__.'/../')
-);
+if (version_compare(PHP_VERSION, '5.6.4', '<')) {
+    die('require PHP > 5.6.4 !');
+}
 
 /*
 |--------------------------------------------------------------------------
-| Bind Important Interfaces
+| Setting Version
 |--------------------------------------------------------------------------
-|
-| Next, we need to bind some important interfaces into the container so
-| we will be able to resolve them when needed. The kernels serve the
-| incoming requests to this application from both the web and CLI.
 |
 */
 
-$app->singleton(
-    Illuminate\Contracts\Http\Kernel::class,
-    App\Http\Kernel::class
-);
+define('APPNAME', 'ECTouch');
+define('VERSION', '2.0.0-dev');
+define('RELEASE', '20170919');
+define('CHARSET', 'utf-8');
+define('ADMIN_PATH', 'admin');
+define('AUTH_KEY', 'this is a key');
+define('OLD_AUTH_KEY', '');
+define('API_TIME', '2017-09-19 09:20:18');
 
-$app->singleton(
-    Illuminate\Contracts\Console\Kernel::class,
-    App\Console\Kernel::class
-);
+/*
+|--------------------------------------------------------------------------
+| Setting Debuger
+|--------------------------------------------------------------------------
+|
+*/
 
-$app->singleton(
-    Illuminate\Contracts\Debug\ExceptionHandler::class,
-    App\Exceptions\Handler::class
-);
+if (!in_array(@$_SERVER['REMOTE_ADDR'], ['127.0.0.1', '192.168.10.1'])) {
+    defined('YII_DEBUG') or define('YII_DEBUG', false);
+    defined('YII_ENV') or define('YII_ENV', 'prod');
+} else {
+    defined('YII_DEBUG') or define('YII_DEBUG', true);
+    defined('YII_ENV') or define('YII_ENV', 'dev');
+}
+
+/*
+|--------------------------------------------------------------------------
+| Loading Kernel
+|--------------------------------------------------------------------------
+|
+*/
+
+require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
+
+/*
+|--------------------------------------------------------------------------
+| Loading Bootstrap
+|--------------------------------------------------------------------------
+|
+*/
+
+require(__DIR__ . '/../config/bootstrap.php');
+
+/*
+|--------------------------------------------------------------------------
+| Loading Configuration
+|--------------------------------------------------------------------------
+|
+*/
+
+$config = require(__DIR__ . '/../config/config.php');
 
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +73,4 @@ $app->singleton(
 |
 */
 
-return $app;
+return new yii\web\Application($config);
