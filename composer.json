@@ -49,23 +49,12 @@
     },
     "autoload": {
         "psr-4": {
-            "app\\": "app/"
+            "App\\": "app/"
         },
         "files": [
             "config/constant.php",
-            "app/support/helpers.php"
+            "app/Support/helpers.php"
         ]
-    },
-    "config": {
-        "sort-packages": true,
-        "optimize-autoloader": true,
-        "process-timeout": 1800,
-        "fxp-asset":{
-            "installer-paths": {
-                "npm-asset-library": "vendor/npm",
-                "bower-asset-library": "vendor/bower"
-            }
-        }
     },
     "scripts": {
         "post-create-project-cmd": [
@@ -84,6 +73,17 @@
             "generateCookieValidationKey": [
                 "config/config.php"
             ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "process-timeout": 1800,
+        "fxp-asset":{
+            "installer-paths": {
+                "npm-asset-library": "vendor/npm",
+                "bower-asset-library": "vendor/bower"
+            }
         }
     }
 }
