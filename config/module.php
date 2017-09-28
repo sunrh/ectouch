@@ -2,12 +2,15 @@
 
 return [
     'admin' => [
-        'class' => 'app\modules\admin\Module',
+        'class' => 'App\Modules\Admin\Module',
     ],
     'api' => [
-        'class' => 'app\api\Module',
+        'class' => 'App\Api\Module',
     ],
     'custom' => [
-        'class' => 'app\custom\Module',
+        'class' => 'App\Custom\Module',
+    ],
+    'installer' => [
+        'class' => 'App\Modules\Installer\Module',
     ],
 ];
